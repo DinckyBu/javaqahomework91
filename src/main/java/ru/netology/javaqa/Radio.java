@@ -1,12 +1,41 @@
 package ru.netology.javaqa;
 
 public class Radio {
-    private int currentRadio; //номер радиостанции
-    private int currentVolume; //громкость
+    private int minRadio = 0;
+    private int maxRadio = 9;
+    private int currentRadio = minRadio; //номер радиостанции
+
+    private int minVolume = 0;
+    private int maxVolume = 100;
+    private int currentVolume = minVolume; //громкость
+
+    public Radio(int size) {
+        maxRadio = minRadio + size;
+    }
+
+    public Radio() {
+
+    }
 
     public int getCurrentRadio() {
 
         return currentRadio;
+    }
+
+    public int getMinRadio() {
+        return minRadio;
+    }
+
+    public int getMaxRadio() {
+        return maxRadio;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
+    }
+
+    public int getMaxVolume() {
+        return maxVolume;
     }
 
     public int getCurrentVolume() {
@@ -14,67 +43,68 @@ public class Radio {
     }
 
     public void setCurrentRadio(int newCurrentRadio) {
-        if (newCurrentRadio < 0) {
+        if (newCurrentRadio < minRadio) {
             return;
         }
-        if (newCurrentRadio > 9) {
+        if (newCurrentRadio > maxRadio) {
             return;
         }
         currentRadio = newCurrentRadio;
     }
 
     public void setToMaxRadio() { //выставляем максимум
-        currentRadio = 9;
+        currentRadio = maxRadio;
     }
 
     public void setToMinRadio() { //выставляем максимум
-        currentRadio = 0;
+        currentRadio = minRadio;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
+        if (newCurrentVolume < minVolume) {
             return;
         }
-        if (newCurrentVolume > 100) {
+        if (newCurrentVolume > maxVolume) {
             return;
         }
         currentVolume = newCurrentVolume;
     }
 
     public void setToMaxVolume() { //выставляем максимум
-        currentVolume = 100;
+        currentVolume = maxVolume;
     }
 
     public void setToMinVolume() { //выставляем максимум
-        currentVolume = 0;
+        currentVolume = minVolume;
     }
 
     public void next() {
-        if (currentRadio != 9) {
+        if (currentRadio != maxRadio) {
             currentRadio = currentRadio + 1;
         } else {
 
-            currentRadio = 0;
+            currentRadio = minRadio;
         }
     }
+
     public void prev() {
-        if (currentRadio != 0) {
+        if (currentRadio != minRadio) {
             currentRadio = currentRadio - 1;
-        }
-        else {
-            currentRadio = 9;
+        } else {
+            currentRadio = maxRadio;
         }
     }
 
     public void increaseVolume() {
-        if (currentVolume != 100) {
+        if (currentVolume != maxVolume) {
             currentVolume = currentVolume + 1;
         }
     }
 
     public void decreaseVolume() {
-        if (currentVolume != 0) {
+        if (currentVolume != minVolume) {
             currentVolume = currentVolume - 1;
         }
     }
 }
+
