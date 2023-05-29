@@ -2,7 +2,7 @@ package ru.netology.javaqa;
 
 public class Radio {
     private int currentRadio; //номер радиостанции
-    public int currentVolume; //громкость
+    private int currentVolume; //громкость
 
     public int getCurrentRadio() {
         return currentRadio;
