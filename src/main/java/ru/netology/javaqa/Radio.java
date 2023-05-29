@@ -5,6 +5,7 @@ public class Radio {
     private int currentVolume; //громкость
 
     public int getCurrentRadio() {
+
         return currentRadio;
     }
 
@@ -51,16 +52,16 @@ public class Radio {
     public void next() {
         if (currentRadio != 9) {
             currentRadio = currentRadio + 1;
-        }
-        if (currentRadio == 9)
-            currentRadio = 0;
-    }
+        } else {
 
+            currentRadio = 0;
+        }
+    }
     public void prev() {
         if (currentRadio != 0) {
             currentRadio = currentRadio - 1;
         }
-        if (currentRadio == 0) {
+        else {
             currentRadio = 9;
         }
     }
